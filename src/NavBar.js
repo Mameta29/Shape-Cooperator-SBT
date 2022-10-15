@@ -24,6 +24,7 @@ const NavBar = ({ accounts, setAccounts }) => {
   ];
 
   async function connectAccount() {
+    console.log(walletsOfCooperator);
     if (window.ethereum) {
       const accounts = await window.ethereum.request({
         method: 'eth_requestAccounts',
@@ -31,6 +32,7 @@ const NavBar = ({ accounts, setAccounts }) => {
       // console.log('これがacountsじゃあ！', accounts);
       // 登録されたアドレス以外ウォレット接続できない
       walletsOfCooperator.forEach((wallet) => {
+        console.log(wallet);
         if (accounts[0].toUpperCase() === wallet.toUpperCase()) {
           setAccounts(accounts);
         }
