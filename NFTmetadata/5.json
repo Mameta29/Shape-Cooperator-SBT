@@ -4,11 +4,11 @@
     "description": "First cooperator NFT for Shape",
     "attributes": [
         {
-            "type": "roll",
+            "type": "Roll",
             "value": "First cooperator"
         },
         {
-            "type": "color",
+            "type": "Color",
             "value": "Perple"
         }
     ]
