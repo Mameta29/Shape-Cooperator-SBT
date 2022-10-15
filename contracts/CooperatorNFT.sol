@@ -23,7 +23,7 @@ contract CooperatorNFT is ERC721, ERC721URIStorage, Ownable {
         totalSupply = 0;
         maxSupply = 7;
         maxPerWallet = 1;
-        withdrawWallet = payable(0xAd9b9Ad87A4d1EE7D52382A0400D79B3714806cE);
+        withdrawWallet = payable(0x0aDCc460064014d453Cf6C6f4E0a2BD5e6152421);
     }
 
     function setIsPublicMintEnabled(bool isPublicMintEnabled_)
