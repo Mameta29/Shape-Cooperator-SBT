@@ -7,8 +7,8 @@ const NavBar = ({ accounts, setAccounts }) => {
   const isConnected = Boolean(accounts[0]);
   const walletsOfCooperator = [
     '0xAd9b9Ad87A4d1EE7D52382A0400D79B3714806cE', // 1
-    '0x1D73928555663200d3CABEf15e53C0a857397B36', // 2 あっきーさん
-    '0xaB1839aD0a610aDBB60FF50843Ae860f4f25cdaC', // 3 ゆうちゃん
+    '0x1D73928555663200d3CABEf15e53C0a857397B36', // 2 あ
+    '0xaB1839aD0a610aDBB60FF50843Ae860f4f25cdaC', // 3 ゆ
     // '0x4bB9aCE65677028B15a0a1ab189e72b8817e2a11', // 4
     // '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266', // 5
     // '0xfD8600dF5DD9fe11688109f35398c3B09703D153', // 6
