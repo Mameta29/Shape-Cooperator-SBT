@@ -53,7 +53,7 @@ const MainMint = ({ accounts, setAccounts }) => {
         {isConnected ? (
           minted ? (
             <Box>
-              <p className="mint-count">Minted✨</p>
+              <p className="minted-text">Minted✨</p>
               <p className="price-text">0.03 eth</p>
             </Box>
           ) : (
