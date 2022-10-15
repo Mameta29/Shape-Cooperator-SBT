@@ -4,16 +4,20 @@ require('@nomiclabs/hardhat-etherscan');
 
 /** @type import('hardhat/config').HardhatUserConfig */
 
-const { API_URL, PRIVATE_KEY, APP_ETHERSCAN_KEY } = process.env;
+const {
+  REACT_APP_API_URL,
+  REACT_APP_PRIVATE_KEY,
+  REACT_APP_APP_ETHERSCAN_KEY,
+} = process.env;
 module.exports = {
   solidity: '0.8.4',
   networks: {
     goerli: {
-      url: API_URL,
-      accounts: [`0x${PRIVATE_KEY}`],
+      url: REACT_APP_API_URL,
+      accounts: [`0x${REACT_APP_PRIVATE_KEY}`],
     },
   },
   etherscan: {
-    apiKey: APP_ETHERSCAN_KEY,
+    apiKey: REACT_APP_APP_ETHERSCAN_KEY,
   },
 };
