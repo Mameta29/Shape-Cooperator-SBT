@@ -21,7 +21,7 @@ contract CooperatorNFT is ERC721, ERC721URIStorage, Ownable {
     constructor() payable ERC721("ShapeCooperatorNFT", "SCN") {
         mintPrice = 0.03 ether;
         totalSupply = 0;
-        maxSupply = 7;
+        maxSupply = 8;
         maxPerWallet = 1;
         withdrawWallet = payable(0x0aDCc460064014d453Cf6C6f4E0a2BD5e6152421);
     }

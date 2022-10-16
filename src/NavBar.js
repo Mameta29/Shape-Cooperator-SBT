@@ -47,7 +47,7 @@ const NavBar = ({ accounts, setAccounts }) => {
         <Link href="https://twitter.com/Shape_ProjectJa">
           <Image src={Twitter} boxSize="42px" margin="0 10px" />
         </Link>
-        <Link href="https://discord.gg/6EHz7d2y">
+        <Link href="https://discord.gg/AYPU9Wwh">
           <Image src={Discord} boxSize="42px" margin="0 10px" />
         </Link>
         {isConnected ? (

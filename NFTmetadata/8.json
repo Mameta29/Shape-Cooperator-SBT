@@ -1,0 +1,15 @@
+{ 
+    "name": "Shape Pink CooperatorNFT",
+    "image": "ipfs://bafybeiawovvzcwurig4kfo5antqh5rkfcc34n7bgavdypuarwlhtzf4xdy/8.png",
+    "description": "First cooperator NFT for Shape",
+    "attributes": [
+        {
+            "type": "Roll",
+            "value": "First cooperator"
+        },
+        {
+            "type": "Color",
+            "value": "Pink"
+        }
+    ]
+}

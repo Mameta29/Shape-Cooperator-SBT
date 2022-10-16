@@ -1,12 +1,11 @@
 import { ethers, BigNumber } from 'ethers';
 import cooperatorNFT from './CooperatorNFT.json';
 import './App.css';
-import ShapeLogo from './assets/ShapeLogo.png';
 import NFT from './assets/CooperatorNFTs/pink_予備.png';
 import { Box, Flex, Image } from '@chakra-ui/react';
 import { useState } from 'react';
 
-const cooperatorNFTAddress = '0x8b0452076AFAC438D318f9a08fca7c36F1Eb6678';
+const cooperatorNFTAddress = '0x9Df608bF9b554A21FcB1705ff6878cb059EEE399';
 
 const MainMint = ({ accounts, setAccounts }) => {
   const mintAmount = 1;
@@ -45,7 +44,6 @@ const MainMint = ({ accounts, setAccounts }) => {
   return (
     <div>
       <Flex justify="center" align="center" padding="30px">
-        <Image src={ShapeLogo} boxSize="50px" margin="0 15px" />
         <h1 className="header gradient-text">Shape NFT</h1>
       </Flex>
       <p className="sub-text">Shapeにご協力くださりありがとうございます💫</p>
