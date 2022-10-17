@@ -10,6 +10,7 @@ const KEY_User4 = process.env.REACT_APP_KEY_USER4;
 const KEY_User5 = process.env.REACT_APP_KEY_USER5;
 const KEY_User6 = process.env.REACT_APP_KEY_USER6;
 const KEY_User7 = process.env.REACT_APP_KEY_USER7;
+const KEY_User8 = process.env.REACT_APP_KEY_USER8;
 
 const NavBar = ({ accounts, setAccounts }) => {
   const isConnected = Boolean(accounts[0]);
@@ -21,6 +22,7 @@ const NavBar = ({ accounts, setAccounts }) => {
     KEY_User5,
     KEY_User6,
     KEY_User7,
+    KEY_User8,
   ];
 
   async function connectAccount() {

@@ -1,15 +1,15 @@
-{
+{ 
     "name": "Shape Green CooperatorNFT",
-    "image": "ipfs://bafybeiga5a4nvieopckcdau7eusbs3wba3hoekricw2cwqy55gez5426uy/2.png",
+    "image": "https://nftstorage.link/ipfs/bafybeigv2eh2jktcieoyt4aylcnhpdtz43b2s3dubdnzd3pcnbicy2q6eq/2.png",
     "description": "First cooperator NFT for Shape",
     "attributes": [
         {
             "trait_type": "roll",
-            "value": "First cooperator"
+            "value": "first cooperator"
         },
         {
             "trait_type": "color",
-            "value": "Green"
+            "value": "green"
         }
     ]
 }
