@@ -5,33 +5,14 @@ import NFT from './assets/CooperatorNFTs/pink_予備.png';
 import { Box, Flex, Image } from '@chakra-ui/react';
 
 const cooperatorNFTAddress = '0x8D8284451852f451CAEad8214b00E5CE49c8b94a';
-const amountOfMint = 0;
 
-const MainMint = ({
-  accounts,
-  setAccounts,
-  // mintedAccount,
-  // setMintedAccount,
-  isMinted,
-  setIsMinted,
-}) => {
+const MainMint = ({ accounts, setAccounts, isMinted, setIsMinted }) => {
   const mintAmount = 1;
   const isConnected = Boolean(accounts[0]);
-
-  // const mint = async () => {
-  //   // console.log('1' + isMinted);
-  //   await handleMint();
-  //   // console.log('2' + isMinted);
-  //   // setIsMinted(true);
-  //   // console.log('3' + isMinted);
-  // };
 
   async function handleMint() {
     if (window.ethereum) {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
-      // const mint_accounts = await window.ethereum.request({
-      //   method: 'eth_requestAccounts',
-      // });
       const signer = provider.getSigner();
       const contract = new ethers.Contract(
         cooperatorNFTAddress,
@@ -43,7 +24,6 @@ const MainMint = ({
           value: ethers.utils.parseEther((0.03 * mintAmount).toString()),
         });
         console.log('response: ', response);
-        amountOfMint++;
         setIsMinted(true);
       } catch (err) {
         console.log('error: ', err);
@@ -66,7 +46,7 @@ const MainMint = ({
                 href="https://testnets.opensea.io/collection/shapecooperatornft-50zrsrce1j"
                 className="price-text"
               >
-                OpenSeaで見てみてね！
+                ありがとうございます！SBTをOpenSeaでご覧ください！
               </a>
               <p className="price-text">0.03 eth</p>
             </Box>

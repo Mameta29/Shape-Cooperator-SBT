@@ -15,14 +15,7 @@ const KEY_User6 = process.env.REACT_APP_KEY_USER6;
 const KEY_User7 = process.env.REACT_APP_KEY_USER7;
 const KEY_User8 = process.env.REACT_APP_KEY_USER8;
 
-const NavBar = ({
-  accounts,
-  setAccounts,
-  // mintedAccount,
-  // setMintedAccount,
-  isMinted,
-  setIsMinted,
-}) => {
+const NavBar = ({ accounts, setAccounts, isMinted, setIsMinted }) => {
   const isConnected = Boolean(accounts[0]);
   const walletsOfCooperator = [
     KEY_User1,
@@ -41,7 +34,6 @@ const NavBar = ({
       const accounts = await window.ethereum.request({
         method: 'eth_requestAccounts',
       });
-      // console.log('これがacountsじゃあ！', accounts);
       // 登録されたアドレス以外ウォレット接続できない
       walletsOfCooperator.forEach((wallet) => {
         if (accounts[0].toUpperCase() === wallet.toUpperCase()) {
@@ -58,23 +50,16 @@ const NavBar = ({
           signer
         );
         try {
-          // let wallet = new ethers.Wallet(
-          //   process.env.REACT_APP_PRIVATE_KEY,
-          //   provider
-          // );
-          // let balance = await wallet.getBalance();
-          // console.log(balance);
-          console.log(accounts[0]);
+          console.log('login address : ' + accounts[0]);
 
-          const response = await contract.balanceOf(accounts[0]);
-          console.log('response: ', response);
-          // const response2 = await contract.ownerOf(1);
-          // console.log('response2: ', response2);
-
-          console.log(response._hex);
-
-          if (response._hex !== '0x00') {
-            console.log('いいとこはいってる！');
+          // ユーザーがnftを所有しているか確認
+          const balance = await contract.balanceOf(accounts[0]);
+          console.log('response: ', balance);
+          console.log(balance.toString());
+          // blance === 1 でnft所有
+          // 所有している場合はmintボタンを押せないようにする
+          if (balance.toString() !== '0') {
+            console.log('already minted!');
             setIsMinted(true);
           }
         } catch (err) {

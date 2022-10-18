@@ -13,16 +13,12 @@ function App() {
       <NavBar
         accounts={accounts}
         setAccounts={setAccounts}
-        // mintedAccount={mintedAccount}
-        // setMintedAccount={setMintedAccount}
         isMinted={isMinted}
         setIsMinted={setIsMinted}
       />
       <MainMint
         accounts={accounts}
         setAccounts={setAccounts}
-        // mintedAccount={mintedAccount}
-        // setMintedAccount={setMintedAccount}
         isMinted={isMinted}
         setIsMinted={setIsMinted}
       />
