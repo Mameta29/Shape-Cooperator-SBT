@@ -4,7 +4,7 @@ import './App.css';
 import NFT from './assets/CooperatorNFTs/pink_予備.png';
 import { Box, Flex, Image } from '@chakra-ui/react';
 
-const cooperatorNFTAddress = '0x8D8284451852f451CAEad8214b00E5CE49c8b94a';
+const cooperatorNFTAddress = '0x2E5598854Ed502B67480895E5e43b4E359926a65';
 
 const MainMint = ({ accounts, setAccounts, isMinted, setIsMinted }) => {
   const mintAmount = 1;

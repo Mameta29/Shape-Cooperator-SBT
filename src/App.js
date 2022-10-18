@@ -5,7 +5,6 @@ import NavBar from './NavBar';
 
 function App() {
   const [accounts, setAccounts] = useState([]);
-  // const [mintedAccount, setMintedAccount] = useState([]);
   const [isMinted, setIsMinted] = useState(false);
 
   return (

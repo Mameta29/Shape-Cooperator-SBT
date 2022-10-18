@@ -5,7 +5,7 @@ import Twitter from './assets/social-media-icons/twitterLogo.png';
 import { ethers } from 'ethers';
 import cooperatorNFT from './CooperatorNFT.json';
 
-const cooperatorNFTAddress = '0x8D8284451852f451CAEad8214b00E5CE49c8b94a';
+const cooperatorNFTAddress = '0x2E5598854Ed502B67480895E5e43b4E359926a65';
 const KEY_User1 = process.env.REACT_APP_KEY_USER1;
 const KEY_User2 = process.env.REACT_APP_KEY_USER2;
 const KEY_User3 = process.env.REACT_APP_KEY_USER3;
