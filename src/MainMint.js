@@ -43,7 +43,7 @@ const MainMint = ({ accounts, setAccounts, isMinted, setIsMinted }) => {
             <Box>
               <p className="minted-text">Minted✨</p>
               <a
-                href="https://testnets.opensea.io/collection/shapecooperatornft-50zrsrce1j"
+                href="https://opensea.io/collection/shapecooperatornft"
                 className="price-text"
               >
                 ありがとうございます！SBTをOpenSeaでご覧ください！
