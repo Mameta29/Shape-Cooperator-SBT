@@ -2,7 +2,10 @@ import { React } from 'react';
 import { Box, Button, Flex, Image, Link } from '@chakra-ui/react';
 import Discord from './assets/social-media-icons/discordLogo.png';
 import Twitter from './assets/social-media-icons/twitterLogo.png';
+import { ethers } from 'ethers';
+import cooperatorNFT from './CooperatorNFT.json';
 
+const cooperatorNFTAddress = '0x8D8284451852f451CAEad8214b00E5CE49c8b94a';
 const KEY_User1 = process.env.REACT_APP_KEY_USER1;
 const KEY_User2 = process.env.REACT_APP_KEY_USER2;
 const KEY_User3 = process.env.REACT_APP_KEY_USER3;
@@ -12,7 +15,14 @@ const KEY_User6 = process.env.REACT_APP_KEY_USER6;
 const KEY_User7 = process.env.REACT_APP_KEY_USER7;
 const KEY_User8 = process.env.REACT_APP_KEY_USER8;
 
-const NavBar = ({ accounts, setAccounts }) => {
+const NavBar = ({
+  accounts,
+  setAccounts,
+  // mintedAccount,
+  // setMintedAccount,
+  isMinted,
+  setIsMinted,
+}) => {
   const isConnected = Boolean(accounts[0]);
   const walletsOfCooperator = [
     KEY_User1,
@@ -26,7 +36,7 @@ const NavBar = ({ accounts, setAccounts }) => {
   ];
 
   async function connectAccount() {
-    console.log(walletsOfCooperator);
+    // console.log(walletsOfCooperator);
     if (window.ethereum) {
       const accounts = await window.ethereum.request({
         method: 'eth_requestAccounts',
@@ -34,11 +44,43 @@ const NavBar = ({ accounts, setAccounts }) => {
       // console.log('これがacountsじゃあ！', accounts);
       // 登録されたアドレス以外ウォレット接続できない
       walletsOfCooperator.forEach((wallet) => {
-        console.log(wallet);
         if (accounts[0].toUpperCase() === wallet.toUpperCase()) {
           setAccounts(accounts);
         }
       });
+
+      if (window.ethereum) {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = provider.getSigner();
+        const contract = new ethers.Contract(
+          cooperatorNFTAddress,
+          cooperatorNFT.abi,
+          signer
+        );
+        try {
+          // let wallet = new ethers.Wallet(
+          //   process.env.REACT_APP_PRIVATE_KEY,
+          //   provider
+          // );
+          // let balance = await wallet.getBalance();
+          // console.log(balance);
+          console.log(accounts[0]);
+
+          const response = await contract.balanceOf(accounts[0]);
+          console.log('response: ', response);
+          // const response2 = await contract.ownerOf(1);
+          // console.log('response2: ', response2);
+
+          console.log(response._hex);
+
+          if (response._hex !== '0x00') {
+            console.log('いいとこはいってる！');
+            setIsMinted(true);
+          }
+        } catch (err) {
+          console.log('error: ', err);
+        }
+      }
     }
   }
 

@@ -14,6 +14,7 @@ contract CooperatorNFT is ERC721, ERC721URIStorage, Ownable {
     string internal baseTokenUri;
     address payable public withdrawWallet;
     mapping(address => uint256) public walletMints;
+    mapping(address => uint256) private _balances;
 
     // Optional mapping for token URIs
     mapping(uint256 => string) private _tokenURIs;
@@ -73,6 +74,7 @@ contract CooperatorNFT is ERC721, ERC721URIStorage, Ownable {
         uint256 newTokenId = totalSupply + 1;
         totalSupply++;
         _safeMint(msg.sender, newTokenId);
+        _balances[msg.sender]++;
     }
 
     function _beforeTokenTransfer(
@@ -94,5 +96,14 @@ contract CooperatorNFT is ERC721, ERC721URIStorage, Ownable {
         if (bytes(_tokenURIs[tokenId]).length != 0) {
             delete _tokenURIs[tokenId];
         }
+    }
+
+    function balanceOf(address _owner)
+        public
+        view
+        override(ERC721)
+        returns (uint256)
+    {
+        return _balances[_owner];
     }
 }

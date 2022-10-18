@@ -3,26 +3,35 @@ import cooperatorNFT from './CooperatorNFT.json';
 import './App.css';
 import NFT from './assets/CooperatorNFTs/pink_予備.png';
 import { Box, Flex, Image } from '@chakra-ui/react';
-import { useState } from 'react';
 
-const cooperatorNFTAddress = '0xA17741529eFb135F1FFBD485ECA39fA3209159cd';
+const cooperatorNFTAddress = '0x8D8284451852f451CAEad8214b00E5CE49c8b94a';
+const amountOfMint = 0;
 
-const MainMint = ({ accounts, setAccounts }) => {
+const MainMint = ({
+  accounts,
+  setAccounts,
+  // mintedAccount,
+  // setMintedAccount,
+  isMinted,
+  setIsMinted,
+}) => {
   const mintAmount = 1;
   const isConnected = Boolean(accounts[0]);
-  const [minted, setMinted] = useState(false);
 
-  const mint = async () => {
-    console.log('1' + minted);
-    await handleMint();
-    console.log('2' + minted);
-    setMinted(true);
-    console.log('3' + minted);
-  };
+  // const mint = async () => {
+  //   // console.log('1' + isMinted);
+  //   await handleMint();
+  //   // console.log('2' + isMinted);
+  //   // setIsMinted(true);
+  //   // console.log('3' + isMinted);
+  // };
 
   async function handleMint() {
     if (window.ethereum) {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
+      // const mint_accounts = await window.ethereum.request({
+      //   method: 'eth_requestAccounts',
+      // });
       const signer = provider.getSigner();
       const contract = new ethers.Contract(
         cooperatorNFTAddress,
@@ -34,7 +43,8 @@ const MainMint = ({ accounts, setAccounts }) => {
           value: ethers.utils.parseEther((0.03 * mintAmount).toString()),
         });
         console.log('response: ', response);
-        setMinted(true);
+        amountOfMint++;
+        setIsMinted(true);
       } catch (err) {
         console.log('error: ', err);
       }
@@ -49,14 +59,20 @@ const MainMint = ({ accounts, setAccounts }) => {
       <p className="sub-text">Shapeにご協力くださりありがとうございます💫</p>
       <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
         {isConnected ? (
-          minted ? (
+          isMinted ? (
             <Box>
               <p className="minted-text">Minted✨</p>
+              <a
+                href="https://testnets.opensea.io/collection/shapecooperatornft-50zrsrce1j"
+                className="price-text"
+              >
+                OpenSeaで見てみてね！
+              </a>
               <p className="price-text">0.03 eth</p>
             </Box>
           ) : (
             <Box>
-              <button className="cta-button mint-button" onClick={mint}>
+              <button className="cta-button mint-button" onClick={handleMint}>
                 Mint Now
               </button>
               <p className="price-text">0.03 eth</p>
